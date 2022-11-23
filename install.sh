@@ -9,8 +9,8 @@ then
             curl ca-certificates ntp dosfstools exfat-utils ntfs-3g \
             networkmanager network-manager-applet gnome-keyring pipewire-pulse wireplumber \
             xorg-server xorg-xinit xorg-xmodmap xorg-xbacklight \
-            i3-wm i3status dmenu picom slock feh ranger scrot dunst \
-            lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings \
+            i3-wm i3status dmenu picom slock feh ranger scrot dunst ueberzug \
+            lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings atool \
             noto-fonts noto-fonts-emoji \
             mpv kitty zsh tmux neovim firefox
 
