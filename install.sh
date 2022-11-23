@@ -23,6 +23,9 @@ then
 
     echo "password: "
     chsh -s /bin/zsh $USER >/dev/null 2>&1
+
+    echo "wallpaper password: "
+    unzip $DOTFILES/wallpapers/.config/wallpapers/wallpapers.zip -d $DOTFILES/wallpapers/.config/wallpapers
 fi
 
 pushd $DOTFILES
