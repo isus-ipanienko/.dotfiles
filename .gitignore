@@ -1,0 +1,4 @@
+*.png
+*.jpg
+nvim/.config/nvim/plugin/packer_compiled.lua
+
