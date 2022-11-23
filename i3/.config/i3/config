@@ -4,10 +4,12 @@ set $mod Mod4
 bindsym $mod+d exec dmenu_run
 bindsym $mod+Return exec kitty
 bindsym $mod+b exec firefox
+bindsym $mod+n exec flatpak run com.discordapp.Discord
+bindsym $mod+m exec flatpak run org.keepassxc.KeePassXC
 
 # startup
 exec --no-startup-id picom --config $HOME/.config/picom/picom.conf
-exec --no-startup-id feh --bg-scale $HOME/.config/wallpapers/arch0.png
+exec --no-startup-id feh --bg-scale --randomize $HOME/.config/wallpapers/*
 exec --no-startup-id dunst
 exec --no-startup-id xmodmap $HOME/.Xmodmap
 exec --no-startup-id dbus-update-activation-environment --all
