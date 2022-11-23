@@ -82,6 +82,9 @@ client.urgent               #3B4252 #2f343f #d8dee8 #3B4252 #2f343f
 client.placeholder          #3B4252 #2f343f #d8dee8 #3B4252 #2f343f
 client.background           #2f343f
 
+default_border pixel 1
+default_floating_border pixel 1
+
 bar {
     status_command    i3status
     position          top
