@@ -15,6 +15,7 @@ exec --no-startup-id xmodmap $HOME/.Xmodmap
 exec --no-startup-id dbus-update-activation-environment --all
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id nm-applet --sm-disable
+exec_always --no-startup-id $HOME/.config/polybar/polybar.sh & 
 
 # system
 bindsym $mod+Shift+q kill
@@ -52,8 +53,6 @@ bindsym $mod+Ctrl+j resize shrink height 5 px or 5 ppt
 bindsym $mod+Ctrl+k resize grow height 5 px or 5 ppt
 bindsym $mod+Ctrl+l resize grow width 5 px or 5 ppt
 
-bindsym $mod+w split h
-bindsym $mod+v split v
 bindsym $mod+f fullscreen
 
 # workspaces
@@ -90,14 +89,3 @@ client.background           #2f343f
 default_border pixel 1
 default_floating_border pixel 1
 
-bar {
-    status_command    i3status
-    position          top
-    tray_output       primary
-    font              Noto Sans
-
-    colors {
-        background #000000
-        statusline #ffffff
-    }
-}

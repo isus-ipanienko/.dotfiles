@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
-STOW_FOLDERS="i3,kitty,nvim,picom,ranger,tmux,wallpapers,zsh"
+STOW_FOLDERS="i3,kitty,nvim,picom,polybar,ranger,tmux,wallpapers,zsh"
 DOTFILES=$HOME/.dotfiles
 
 if [ "$1" == "--fresh" ]
 then
     echo "installing dependencies..."
-    sudo pacman --noconfirm --needed -Sy stow base-devel git fzf ripgrep \
+    sudo pacman --noconfirm --needed -Sy stow base-devel git \
             curl ca-certificates ntp dosfstools exfat-utils ntfs-3g \
-            networkmanager network-manager-applet gnome-keyring pipewire-pulse wireplumber \
             xorg-server xorg-xinit xorg-xmodmap acpilight \
-            i3-wm i3status dmenu picom slock feh ranger scrot dunst ueberzug \
+            networkmanager nm-connection-editor gnome-keyring \
+            pipewire-pulse wireplumber pamixer \ 
             lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings atool \
+            i3-wm picom polybar dmenu slock feh dunst scrot \
             noto-fonts noto-fonts-emoji \
-            mpv kitty zsh tmux neovim firefox
+            kitty zsh ranger mpv tmux neovim fzf firefox
 
     sudo systemctl enable lightdm
     sudo systemctl enable NetworkManager
@@ -24,8 +25,9 @@ then
     echo "password: "
     chsh -s /bin/zsh $USER >/dev/null 2>&1
 
-    echo "wallpaper password: "
     unzip $DOTFILES/wallpapers/.config/wallpapers/wallpapers.zip -d $DOTFILES/wallpapers/.config/wallpapers
+    
+    chmod +x polybar/.config/polybar/*.sh
 fi
 
 pushd $DOTFILES
