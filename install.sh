@@ -13,7 +13,7 @@ then
             lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings atool \
             i3-wm picom polybar dmenu slock feh dunst scrot python-pywal \
             noto-fonts noto-fonts-emoji \
-            kitty zsh ranger mpv tmux neovim fzf firefox
+            kitty zsh ranger mpv tmux neovim fzf ripgrep firefox
 
     sudo systemctl enable lightdm
     sudo systemctl enable NetworkManager

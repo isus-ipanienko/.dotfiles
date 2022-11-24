@@ -13,10 +13,8 @@ local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
     use("wbthomason/packer.nvim")
-
+    use("ellisonleao/gruvbox.nvim")
     use("nvim-lua/plenary.nvim")
-    use("nvim-telescope/telescope.nvim")
-    use("ThePrimeagen/harpoon")
 
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -26,7 +24,8 @@ return require("packer").startup(function(use)
         end,
     }
 
-    use { "ellisonleao/gruvbox.nvim" }
+    use("nvim-telescope/telescope.nvim")
+    use("ThePrimeagen/harpoon")
 
     if packer_bootstrap then
         require("packer").sync()
