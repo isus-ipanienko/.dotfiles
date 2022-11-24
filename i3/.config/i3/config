@@ -1,7 +1,6 @@
 set $mod Mod4
 
-###--- i3 coloring ---###
-# Set colors from Xresources
+# colors
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color8 #f0f0f0
 # class                 border  backgr. text indicator child_border
@@ -13,8 +12,8 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 client.background       $bg
 
 # launch
-bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 bindsym $mod+Return exec kitty
+bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 bindsym $mod+b exec firefox
 bindsym $mod+n exec flatpak run com.discordapp.Discord
 bindsym $mod+m exec flatpak run org.keepassxc.KeePassXC
@@ -23,7 +22,6 @@ bindsym $mod+m exec flatpak run org.keepassxc.KeePassXC
 exec --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec --no-startup-id feh --bg-scale --randomize $HOME/.config/wallpapers/*
 exec --no-startup-id dunst
-exec --no-startup-id xmodmap $HOME/.Xmodmap
 exec --no-startup-id dbus-update-activation-environment --all
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
 exec_always --no-startup-id $HOME/.config/polybar/polybar.sh & 
@@ -31,9 +29,6 @@ exec_always --no-startup-id $HOME/.config/polybar/polybar.sh &
 # system
 bindsym $mod+Shift+q kill
 bindsym --release $mod+Shift+w exec --no-startup-id slock
-bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning \
-    -m 'Exit i3? This will end your X session.' \
-    -B 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym --release $mod+Shift+s exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
