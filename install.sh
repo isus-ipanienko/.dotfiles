@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-STOW_FOLDERS="i3,kitty,nvim,picom,polybar,ranger,tmux,wallpapers,zsh"
+STOW_FOLDERS="i3,kitty,nvim,picom,polybar,ranger,tmux,wallpapers,zsh,X11"
 DOTFILES=$HOME/.dotfiles
 
 if [ "$1" == "--fresh" ]
@@ -11,7 +11,7 @@ then
             networkmanager nm-connection-editor gnome-keyring \
             pipewire-pulse wireplumber pamixer \ 
             lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings atool \
-            i3-wm picom polybar dmenu slock feh dunst scrot \
+            i3-wm picom polybar dmenu slock feh dunst scrot python-pywal \
             noto-fonts noto-fonts-emoji \
             kitty zsh ranger mpv tmux neovim fzf firefox
 
@@ -28,6 +28,8 @@ then
     unzip $DOTFILES/wallpapers/.config/wallpapers/wallpapers.zip -d $DOTFILES/wallpapers/.config/wallpapers
     
     chmod +x polybar/.config/polybar/*.sh
+
+    wal --theme base16-gruvbox-hard
 fi
 
 pushd $DOTFILES

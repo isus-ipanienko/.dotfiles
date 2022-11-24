@@ -1,7 +1,19 @@
 set $mod Mod4
 
+###--- i3 coloring ---###
+# Set colors from Xresources
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color8 #f0f0f0
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+client.background       $bg
+
 # launch
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 bindsym $mod+Return exec kitty
 bindsym $mod+b exec firefox
 bindsym $mod+n exec flatpak run com.discordapp.Discord
@@ -14,7 +26,6 @@ exec --no-startup-id dunst
 exec --no-startup-id xmodmap $HOME/.Xmodmap
 exec --no-startup-id dbus-update-activation-environment --all
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
-exec --no-startup-id nm-applet --sm-disable
 exec_always --no-startup-id $HOME/.config/polybar/polybar.sh & 
 
 # system
@@ -79,13 +90,6 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # borders
-client.focused              #3B4252 #2f343f #d8dee8 #3B4252 #424a59
-client.focused_inactive     #2E3440 #2f343f #d8dee8 #2E3440 #2f343f
-client.unfocused            #2E3440 #2f343f #d8dee8 #2f343f #2f343f
-client.urgent               #3B4252 #2f343f #d8dee8 #3B4252 #2f343f
-client.placeholder          #3B4252 #2f343f #d8dee8 #3B4252 #2f343f
-client.background           #2f343f
-
 default_border pixel 1
 default_floating_border pixel 1
 
