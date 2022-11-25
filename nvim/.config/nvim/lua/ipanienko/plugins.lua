@@ -13,9 +13,8 @@ local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
     use("wbthomason/packer.nvim")
-    use("ellisonleao/gruvbox.nvim")
+    
     use("nvim-lua/plenary.nvim")
-
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -23,9 +22,14 @@ return require("packer").startup(function(use)
             ts_update()
         end,
     }
-
     use("nvim-telescope/telescope.nvim")
     use("ThePrimeagen/harpoon")
+    
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+    use("ellisonleao/gruvbox.nvim")
 
     if packer_bootstrap then
         require("packer").sync()
