@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 vim.keymap.set('n', '<leader>er', ':.,.+')
+vim.keymap.set('x', '<leader>p', '"_dP')
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
