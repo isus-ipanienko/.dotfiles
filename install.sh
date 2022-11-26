@@ -8,7 +8,7 @@ then
     sudo pacman --noconfirm --needed -Sy stow base-devel git lazygit \
             curl ca-certificates ntp dosfstools exfat-utils ntfs-3g \
             xorg-server xorg-xinit xorg-xmodmap acpilight \
-            networkmanager nm-connection-editor gnome-keyring \
+            networkmanager network-manager-applet gnome-keyring \
             pipewire-pulse wireplumber pamixer noto-fonts noto-fonts-emoji \ 
             lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings atool \
             i3-wm picom polybar dmenu slock feh dunst scrot python-pywal \
