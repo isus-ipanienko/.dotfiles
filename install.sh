@@ -13,7 +13,7 @@ then
             lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings atool \
             i3-wm picom polybar dmenu slock feh dunst scrot python-pywal \
             kitty zsh tmux neovim fzf ripgrep \
-            clang rustup rust-analyzer pyright \
+            clang rustup rust-analyzer pyright lua-language-server \
             ranger mpv firefox flatpak xdg-desktop-portal-gnome
 
     sudo systemctl enable lightdm

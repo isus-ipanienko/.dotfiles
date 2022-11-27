@@ -25,8 +25,7 @@ local types = require("luasnip.util.types")
 local parse = require("luasnip.util.parser").parse_snippet
 
 ls.add_snippets("all", {
-	s("ternary", {
-		i(1, "cond"), t(" ? "), i(2, "then"), t(" : "), i(3, "else")
-	})
+    s("ternary", {
+        i(1, "cond"), t(" ? "), i(2, "then"), t(" : "), i(3, "else")
+    })
 })
-
