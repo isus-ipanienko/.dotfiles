@@ -9,35 +9,9 @@ require'nvim-treesitter.configs'.setup {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = '<CR>',
-      scope_incremental = '<CR>',
-      node_incremental = '<TAB>',
-      node_decremental = '<S-TAB>',
-    },
-  },
-  refactor = {
-    highlight_definitions = {
-      enable = true,
-      clear_on_cursor_move = true,
-    },
-    highlight_current_scope = {
-        enable = false
-    },
-    smart_rename = {
-      enable = true,
-      keymaps = {
-        smart_rename = "gr",
-      },
-    },
-    navigation = {
-      enable = true,
-      keymaps = {
-        goto_definition = "gd",
-        list_definitions = "gl",
-        list_definitions_toc = "gt",
-        goto_next_usage = "gn",
-        goto_previous_usage = "gp",
-      },
+      init_selection = '<C-CR>',
+      node_incremental = '<C-CR>',
+      node_decremental = '<S-CR>',
     },
   },
   rainbow = {

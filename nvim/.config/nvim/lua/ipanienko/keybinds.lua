@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-vim.keymap.set('n', '<leader>er', ':.,.+')
+vim.keymap.set('n', '<leader>E', ':.,.+')
 vim.keymap.set('x', '<leader>p', '"_dP')
 
 local builtin = require('telescope.builtin')
