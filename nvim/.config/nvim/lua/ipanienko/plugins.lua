@@ -14,7 +14,6 @@ local packer_bootstrap = ensure_packer()
 return require("packer").startup(function(use)
     use("wbthomason/packer.nvim")
     
-    use("nvim-lua/plenary.nvim")
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -22,6 +21,11 @@ return require("packer").startup(function(use)
             ts_update()
         end,
     }
+    use 'nvim-treesitter/nvim-treesitter-context'
+    use 'nvim-treesitter/nvim-treesitter-refactor'
+    use 'p00f/nvim-ts-rainbow'
+
+    use("nvim-lua/plenary.nvim")
     use("nvim-telescope/telescope.nvim")
     use("ThePrimeagen/harpoon")
     
