@@ -1,5 +1,5 @@
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = "all",
+    ensure_installed = 'all',
     sync_install = false,
     auto_install = true,
     highlight = {
@@ -9,9 +9,9 @@ require 'nvim-treesitter.configs'.setup {
     incremental_selection = {
         enable = true,
         keymaps = {
-            init_selection = '<C-CR>',
-            node_incremental = '<C-CR>',
-            node_decremental = '<S-CR>',
+            init_selection = '<c-cr>',
+            node_incremental = '<c-cr>',
+            node_decremental = '<s-cr>',
         },
     },
     rainbow = {

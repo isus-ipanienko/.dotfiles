@@ -1,15 +1,10 @@
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '<leader>dm', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, opts)
-
 local on_attach = function(client, bufnr)
-    -- Mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float, bufopts)
+    vim.keymap.set('n', '<leader>dj', vim.diagnostic.goto_prev, bufopts)
+    vim.keymap.set('n', '<leader>dk', vim.diagnostic.goto_next, bufopts)
+    vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, bufopts)
+    vim.keymap.set('n', '<leader>dt', '<cmd>Telescope diagnostics<cr>', bufopts)
     vim.keymap.set('n', '<leader>dh', vim.lsp.buf.hover, bufopts)
     vim.keymap.set('n', '<leader>ds', vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set('n', '<leader>de', vim.lsp.buf.references, bufopts)
@@ -27,13 +22,11 @@ local on_attach = function(client, bufnr)
     end, bufopts)
 end
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lspconfig = require('lspconfig')
 local servers = { 'clangd', 'rust_analyzer', 'pyright', 'sumneko_lua' }
 for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
+    require 'lspconfig'[lsp].setup {
         on_attach = on_attach,
-        capabilities = capabilities,
+        capabilities = require 'cmp_nvim_lsp'.default_capabilities(),
     }
 end
 
@@ -42,7 +35,7 @@ luasnip.config.set_config {
     history = true,
     updateevents = 'TextChanged,TextChangedI'
 }
-vim.keymap.set('n', '<leader>ss', '<cmd>source ~/.config/nvim/lua/ipanienko/snippets.lua<CR>')
+vim.keymap.set('n', '<leader>ss', '<cmd>source ~/.config/nvim/lua/ipanienko/snippets.lua<cr>')
 vim.keymap.set({ 'i', 's' }, '<c-k>', function()
     if luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
@@ -62,21 +55,21 @@ cmp.setup {
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<CR>'] = cmp.mapping.confirm {
+        ['<c-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<c-f>'] = cmp.mapping.scroll_docs(4),
+        ['<c-space>'] = cmp.mapping.complete(),
+        ['<cr>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
-        ['<Tab>'] = cmp.mapping(function(fallback)
+        ['<tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
             else
                 fallback()
             end
         end, { 'i', 's' }),
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
+        ['<s-tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
             else
