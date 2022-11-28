@@ -8,14 +8,14 @@ then
     sudo pacman --noconfirm --needed -Sy stow base-devel git lazygit \
             curl ca-certificates ntp dosfstools exfat-utils ntfs-3g \
             xorg-server xorg-xinit xorg-xmodmap acpilight \
-            networkmanager network-manager-applet gnome-keyring \
+            networkmanager network-manager-applet gnome-keyring openvpn networkmanager-openvpn \
             pipewire-pulse wireplumber pamixer noto-fonts noto-fonts-emoji \ 
             lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings atool \
             i3-wm picom polybar dmenu slock feh dunst scrot python-pywal \
             kitty zsh tmux neovim fzf ripgrep \
             clang rustup rust-analyzer pyright lua-language-server \
             ranger mpv firefox flatpak xdg-desktop-portal-gnome
-
+sudo pacman -S  
     sudo systemctl enable lightdm
     sudo systemctl enable NetworkManager
 
