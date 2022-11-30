@@ -1,0 +1,4 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+* {
+    selected-normal-foreground: @background;
+}
