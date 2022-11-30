@@ -28,6 +28,8 @@ return require 'packer'.startup(function(use)
     use 'nvim-telescope/telescope.nvim'
     use 'ThePrimeagen/harpoon'
 
+    use 'kdheepak/lazygit.nvim'
+
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lua'

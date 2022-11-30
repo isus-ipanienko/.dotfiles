@@ -15,7 +15,7 @@ then
             kitty zsh tmux neovim fzf ripgrep \
             clang rustup rust-analyzer pyright lua-language-server \
             ranger mpv firefox flatpak xdg-desktop-portal-gnome
-sudo pacman -S  
+
     sudo systemctl enable lightdm
     sudo systemctl enable NetworkManager
 

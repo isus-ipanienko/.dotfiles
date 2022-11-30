@@ -3,6 +3,8 @@ vim.g.mapleader = " "
 vim.keymap.set('n', '<leader>E', ':.,.+')
 vim.keymap.set('x', '<leader>p', '"_dP')
 
+vim.keymap.set('n', '<leader>gg', '<cmd>LazyGit<cr>', { silent = true })
+
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
