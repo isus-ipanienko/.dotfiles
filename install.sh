@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-STOW_FOLDERS="i3,kitty,nvim,picom,polybar,ranger,tmux,wallpapers,zsh,X11,rofi"
+STOW_FOLDERS="i3,kitty,nvim,picom,polybar,ranger,tmux,wallpapers,zsh,X11,rofi,scripts"
 DOTFILES=$HOME/.dotfiles
 
 if [ "$1" == "--fresh" ]

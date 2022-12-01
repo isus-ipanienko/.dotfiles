@@ -28,3 +28,5 @@ PROMPT="${user_host} ${current_dir} ${git_branch}
 ${user_symbol} "
 RPROMPT="${return_code}"
 
+PATH="$PATH:$HOME/.scripts"
+
