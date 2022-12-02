@@ -7,9 +7,9 @@ then
     echo "installing dependencies..."
     sudo pacman --noconfirm --needed -Sy stow base-devel git lazygit \
             curl ca-certificates ntp dosfstools exfat-utils ntfs-3g \
-            xorg-server xorg-xinit xorg-xmodmap acpilight \
-            networkmanager network-manager-applet gnome-keyring openvpn networkmanager-openvpn \
-            pipewire-pulse wireplumber pamixer noto-fonts noto-fonts-emoji \ 
+            xorg-server xorg-xinit xorg-xmodmap acpilight ttf-sazanami \
+            networkmanager network-manager-applet gnome-keyring openvpn \
+            pipewire-pulse wireplumber pamixer networkmanager-openvpn \ 
             lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings atool \
             i3-wm picom polybar rofi xdotool rofimoji slock feh dunst scrot python-pywal \
             kitty zsh tmux neovim fzf ripgrep \
@@ -22,6 +22,9 @@ then
     git clone https://github.com/isus-ipanienko/zsh-fzf $HOME/.zsh/zsh-fzf
     git clone https://github.com/isus-ipanienko/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
     git clone https://github.com/isus-ipanienko/zsh-syntax-highlighting $HOME/.zsh/zsh-syntax-highlighting
+
+    mkdir $HOME/aur
+    git clone git clone https://aur.archlinux.org/nerd-fonts-noto.git $HOME/aur
 
     flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     flatpak install flathub com.discordapp.Discord

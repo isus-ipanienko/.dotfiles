@@ -3,7 +3,7 @@ vim.opt.relativenumber = true
 vim.opt.nu = true
 
 vim.opt.scrolloff = 8
-vim.opt.cmdheight = 2
+vim.opt.cmdheight = 1
 vim.opt.signcolumn = 'yes'
 vim.opt.colorcolumn = '80'
 vim.opt.wrap = false
