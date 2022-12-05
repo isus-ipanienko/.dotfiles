@@ -23,8 +23,8 @@ then
     git clone https://github.com/isus-ipanienko/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
     git clone https://github.com/isus-ipanienko/zsh-syntax-highlighting $HOME/.zsh/zsh-syntax-highlighting
 
-    mkdir $HOME/aur
-    git clone git clone https://aur.archlinux.org/nerd-fonts-noto.git $HOME/aur
+    mkdir $HOME/Git
+    git clone https://aur.archlinux.org/nerd-fonts-noto.git $HOME/Git
 
     flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     flatpak install flathub com.discordapp.Discord
@@ -34,7 +34,7 @@ then
     echo "password: "
     chsh -s /bin/zsh $USER >/dev/null 2>&1
 
-    unzip $DOTFILES/wallpapers/.config/wallpapers/wallpapers.zip -d $DOTFILES/wallpapers/.config/wallpapers
+    unzip $DOTFILES/wallpapers/.config/wallpapers.zip -d $DOTFILES/wallpapers/.config/wallpapers
     
     chmod +x polybar/.config/polybar/*.sh
 
