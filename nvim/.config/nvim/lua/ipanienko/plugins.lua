@@ -23,6 +23,7 @@ return require 'packer'.startup(function(use)
     }
     use 'nvim-treesitter/nvim-treesitter-context'
     use 'p00f/nvim-ts-rainbow'
+    use 'numToStr/Comment.nvim'
 
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
