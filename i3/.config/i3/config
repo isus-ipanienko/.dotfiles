@@ -16,8 +16,6 @@ bindsym $mod+Return exec kitty
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+period exec --no-startup-id rofimoji
 bindsym $mod+b exec firefox
-bindsym $mod+n exec flatpak run com.discordapp.Discord
-bindsym $mod+p exec flatpak run com.spotify.Client
 bindsym $mod+m exec keepassxc
 
 # startup
@@ -41,8 +39,8 @@ bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 # audio
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && polybar-msg action audio hook 0
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && polybar-msg action audio hook 0
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && polybar-msg action audio hook 0
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && polybar-msg action audio hook 0
 bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && polybar-msg action audio hook 0
 
