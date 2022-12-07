@@ -1,19 +1,19 @@
 require 'Comment'.setup {
     -- LHS of toggle mappings in NORMAL mode
     toggler = {
-        line = '<leader>cc',
-        block = '<leader>bb',
+        line = '<s-m>',
+        block = '<c-m>',
     },
     -- LHS of operator-pending mappings in NORMAL and VISUAL mode
     opleader = {
-        line = '<leader>c',
-        block = '<leader>b',
+        line = '<leader>m',
+        block = '<leader><leader>m',
     },
     -- LHS of extra mappings
     extra = {
-        above = '<leader>cO',
-        below = '<leader>co',
-        eol = '<leader>cA',
+        above = '<leader>mO',
+        below = '<leader>mo',
+        eol = '<leader>mA',
     },
     -- Enable keybindings
     mappings = {

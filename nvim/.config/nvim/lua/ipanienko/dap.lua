@@ -50,18 +50,17 @@ dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
 
 local listeners = dap.listeners
-listeners.after.event_initialized['dapui_config'] = function() dapui.open({1, 2}) end
-listeners.before.event_terminated['dapui_config'] = function() dapui.close({1, 2}) end
-listeners.before.event_exited['dapui_config'] = function() dapui.close({1, 2}) end
+listeners.after.event_initialized['dapui_config'] = function() dapui.open() end
+listeners.before.event_terminated['dapui_config'] = function() dapui.close() end
+listeners.before.event_exited['dapui_config'] = function() dapui.close() end
 
-vim.keymap.set('n', '<home>', function() dapui.toggle({1}) end)
-vim.keymap.set('n', '<end>', function() dapui.toggle({2}) end)
-vim.keymap.set('n', '<leader><leader>m', function() dap.close() end)
+vim.keymap.set('n', '<home>', function() dapui.toggle() end)
+vim.keymap.set('n', '<end>', function() dapui.toggle({1}) end)
 
 vim.keymap.set('n', '<up>', function() dap.continue() end)
 vim.keymap.set('n', '<down>', function() dap.step_over() end)
 vim.keymap.set('n', '<right>', function() dap.step_into() end)
 vim.keymap.set('n', '<left>', function() dap.step_out() end)
-vim.keymap.set('n', '<leader>m', function() dap.toggle_breakpoint() end)
-vim.keymap.set('n', '<leader>M', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
-vim.keymap.set('n', '<leader>mc', function() dap.run_to_cursor() end)
+vim.keymap.set('n', '<c-b>', function() dap.toggle_breakpoint() end)
+vim.keymap.set('n', '<s-b>', function() dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
+vim.keymap.set('n', '<a-b>', function() dap.run_to_cursor() end)
