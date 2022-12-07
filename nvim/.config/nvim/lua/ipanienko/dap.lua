@@ -10,19 +10,27 @@ dapui.setup {
     layouts = {
         {
             elements = {
-                'console',
+                'scopes',
+                'watches',
             },
-            size = 7,
-            position = 'bottom',
+            size = 0.25,
+            position = 'left',
         },
         {
             elements = {
-                { id = 'scopes', size = 0.25 },
-                'watches',
+                'repl',
+                'console',
             },
-            size = 40,
-            position = 'left',
-        }
+            size = 0.25,
+            position = 'bottom',
+        },
+        -- {
+        --     elements = {
+        --         'stacks',
+        --     },
+        --     size = 0.25,
+        --     position = 'right',
+        -- },
     },
 }
 
@@ -55,8 +63,6 @@ listeners.before.event_terminated['dapui_config'] = function() dapui.close() end
 listeners.before.event_exited['dapui_config'] = function() dapui.close() end
 
 vim.keymap.set('n', '<home>', function() dapui.toggle() end)
-vim.keymap.set('n', '<end>', function() dapui.toggle({1}) end)
-
 vim.keymap.set('n', '<up>', function() dap.continue() end)
 vim.keymap.set('n', '<down>', function() dap.step_over() end)
 vim.keymap.set('n', '<right>', function() dap.step_into() end)

@@ -48,6 +48,7 @@ return require 'packer'.startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
+    use 'arkav/lualine-lsp-progress'
     use 'ellisonleao/gruvbox.nvim'
 
     if packer_bootstrap then
