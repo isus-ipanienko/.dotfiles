@@ -17,8 +17,8 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+period exec --no-startup-id rofimoji
 bindsym $mod+b exec firefox
 bindsym $mod+n exec flatpak run com.discordapp.Discord
-bindsym $mod+m exec flatpak run org.keepassxc.KeePassXC
 bindsym $mod+p exec flatpak run com.spotify.Client
+bindsym $mod+m exec keepassxc
 
 # startup
 exec --no-startup-id picom --config $HOME/.config/picom/picom.conf

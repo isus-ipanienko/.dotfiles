@@ -15,6 +15,7 @@ then
             kitty zsh tmux neovim fzf ripgrep \
             clang llvm lldb rustup rust-analyzer pyright lua-language-server \
             ranger mpv firefox flatpak xdg-desktop-portal-gnome
+            ranger mpv firefox keepassxc flatpak xdg-desktop-portal-gnome
 
     sudo systemctl enable lightdm
     sudo systemctl enable NetworkManager
@@ -25,10 +26,10 @@ then
 
     mkdir $HOME/Git
     git clone https://aur.archlinux.org/nerd-fonts-noto.git $HOME/Git
+    git clone https://aur.archlinux.org/nerd-fonts-noto.git $HOME/Git/nerd-fonts-noto
 
     flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     flatpak install flathub com.discordapp.Discord
-    flatpak install flathub org.keepassxc.KeePassXC
     flatpak install flathub com.spotify.Client
 
     echo "password: "
