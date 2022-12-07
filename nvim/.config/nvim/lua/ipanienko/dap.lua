@@ -19,9 +19,9 @@ dapui.setup {
         {
             elements = {
                 'repl',
-                'console',
+                -- 'console',
             },
-            size = 0.25,
+            size = 0.3,
             position = 'bottom',
         },
         -- {
@@ -31,6 +31,9 @@ dapui.setup {
         --     size = 0.25,
         --     position = 'right',
         -- },
+    },
+    controls = {
+        enabled = false
     },
 }
 
@@ -63,6 +66,7 @@ listeners.before.event_terminated['dapui_config'] = function() dapui.close() end
 listeners.before.event_exited['dapui_config'] = function() dapui.close() end
 
 vim.keymap.set('n', '<home>', function() dapui.toggle() end)
+vim.keymap.set('n', '<end>', function() dap.disconnect({ terminateDebuggee = true }) end)
 vim.keymap.set('n', '<up>', function() dap.continue() end)
 vim.keymap.set('n', '<down>', function() dap.step_over() end)
 vim.keymap.set('n', '<right>', function() dap.step_into() end)
