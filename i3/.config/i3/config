@@ -20,7 +20,7 @@ bindsym $mod+m exec keepassxc
 
 # startup
 exec --no-startup-id picom --config $HOME/.config/picom/picom.conf
-exec --no-startup-id feh --bg-scale --randomize $HOME/.config/wallpapers/*
+exec --no-startup-id feh --bg-fill --randomize $HOME/.config/wallpapers/horizontal/*
 exec --no-startup-id dunst
 exec --no-startup-id dbus-update-activation-environment --all
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
