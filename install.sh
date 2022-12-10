@@ -5,7 +5,7 @@ DOTFILES=$HOME/.dotfiles
 if [ "$1" == "--fresh" ]
 then
     echo "installing dependencies..."
-    sudo pacman --noconfirm --needed -Sy stow base-devel git lazygit \
+    sudo pacman --noconfirm --needed -Sy stow base-devel git lazygit p7zip \
             curl ca-certificates ntp dosfstools exfat-utils ntfs-3g \
             xorg-server xorg-xinit xorg-xmodmap acpilight ttf-sazanami \
             networkmanager network-manager-applet gnome-keyring openvpn \
@@ -35,8 +35,8 @@ then
     echo "password: "
     chsh -s /bin/zsh $USER >/dev/null 2>&1
 
-    unzip $DOTFILES/wallpapers/.config/wallpapers.zip -d $DOTFILES/wallpapers/.config/wallpapers
-    
+    7z x -o $DOTFILES/wallpapers/.config/wallpapers $DOTFILES/wallpapers/.config/wallpapers.7z    
+
     chmod +x polybar/.config/polybar/*.sh
 
     wal --theme base16-gruvbox-hard
