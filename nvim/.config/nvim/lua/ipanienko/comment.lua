@@ -7,7 +7,6 @@ require 'Comment'.setup {
     -- LHS of operator-pending mappings in NORMAL and VISUAL mode
     opleader = {
         line = '<leader>m',
-        block = '<leader><leader>m',
     },
     -- LHS of extra mappings
     extra = {
