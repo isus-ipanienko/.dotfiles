@@ -90,4 +90,5 @@ bindsym $mod+Shift+0 move container to workspace 10
 # borders
 default_border pixel 1
 default_floating_border pixel 1
-
+gaps inner 4
+gaps top -1
