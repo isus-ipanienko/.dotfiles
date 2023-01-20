@@ -43,8 +43,8 @@ cmp.setup {
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ['<c-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<c-f>'] = cmp.mapping.scroll_docs(4),
+        ['<c-h>'] = cmp.mapping.scroll_docs(-4),
+        ['<c-l>'] = cmp.mapping.scroll_docs(4),
         ['<c-space>'] = cmp.mapping.complete(),
         ['<cr>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,

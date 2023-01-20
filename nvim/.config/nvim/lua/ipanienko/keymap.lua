@@ -8,9 +8,33 @@ local setup = function()
 
     vim.g.mapleader = " "
 
+    -- preserve pasted buffer
     vim.keymap.set('x', '<leader>i', '"_dP')
 
-    vim.keymap.set('n', '<leader>og', '<cmd>LazyGit<cr>', { silent = true })
+    -- move highlighted text
+    vim.keymap.set('v', 'J', ':m \'>+1<cr>gv=gv')
+    vim.keymap.set('v', 'K', ':m \'<-2<cr>gv=gv')
+
+    -- static cursor
+    vim.keymap.set('n', 'J', 'mzJ`z')
+    vim.keymap.set('n', '<c-d>', '<c-d>zz')
+    vim.keymap.set('n', '<c-u>', '<c-u>zz')
+    vim.keymap.set('n', 'n', 'nzzzv')
+    vim.keymap.set('n', 'N', 'Nzzzv')
+
+    -- copy to system clipboard
+    vim.keymap.set('n', '<leader>y', '"+y')
+    vim.keymap.set('v', '<leader>y', '"+y')
+    vim.keymap.set('n', '<leader>Y', '"+Y')
+
+    -- no thanks
+    vim.keymap.set('n', 'Q', '<nop>')
+
+    -- replace word under cursor
+    vim.keymap.set('n', '<leader>rw', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
+
+    vim.keymap.set('n', '<leader>og', vim.cmd.LazyGit)
+    vim.keymap.set('n', '<leader>ou', vim.cmd.UndotreeToggle)
 
     vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
     vim.keymap.set('n', '<leader>pf', builtin.find_files)
