@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo "Please specify a name for the session."
+    exit
+fi
+
+tmux ls | grep $1 && { tmux attach-session -t $1; exit; }
+
+tmux new-session -d -s $1
+tmux rename-window $1
+tmux send-keys 'nvim .' Enter
+tmux split-window -v
+tmux select-pane -U
+tmux attach-session -t $1
+
