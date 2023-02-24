@@ -11,6 +11,8 @@ tmux new-session -d -s $1
 tmux rename-window $1
 tmux send-keys 'nvim .' Enter
 tmux split-window -v
+tmux send-keys 'gitui' Enter
+tmux split-window -h
 tmux select-pane -U
 tmux attach-session -t $1
 
