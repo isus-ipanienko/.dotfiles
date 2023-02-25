@@ -31,7 +31,6 @@ return require 'packer'.startup(function(use)
     use 'ThePrimeagen/harpoon'
     use 'mbbill/undotree'
 
-    use 'kdheepak/lazygit.nvim'
     use 'aserowy/tmux.nvim'
 
     use 'neovim/nvim-lspconfig'

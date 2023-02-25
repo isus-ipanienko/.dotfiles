@@ -1,5 +1,9 @@
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = 'all',
+    ensure_installed = {
+        'bash', 'c', 'cpp', 'rust', 'python', 'lua', 'c_sharp',
+        'cmake', 'make', 'diff', 'gitignore',
+        'json', 'toml', 'yaml', 'dockerfile', 'nix'
+    },
     sync_install = false,
     auto_install = true,
     highlight = {

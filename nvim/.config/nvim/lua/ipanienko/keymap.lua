@@ -11,6 +11,9 @@ local setup = function()
     -- preserve pasted buffer
     vim.keymap.set('x', '<leader>i', '"_dP')
 
+    -- paste from yank register
+    vim.keymap.set('n', '<c-p>', '"0p')
+
     -- move highlighted text
     vim.keymap.set('v', 'J', ':m \'>+1<cr>gv=gv')
     vim.keymap.set('v', 'K', ':m \'<-2<cr>gv=gv')
@@ -33,7 +36,6 @@ local setup = function()
     -- replace word under cursor
     vim.keymap.set('n', '<leader>rw', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
 
-    vim.keymap.set('n', '<leader>og', vim.cmd.LazyGit)
     vim.keymap.set('n', '<leader>ou', vim.cmd.UndotreeToggle)
 
     vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
