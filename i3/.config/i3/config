@@ -69,14 +69,39 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+# theme
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+
+font pango:DejaVu Sans Mono 10
+
 bar {
     status_command i3status
     position top
     output primary
     tray_output primary
-    font pango:DejaVu Sans Mono 10
+    colors {
+        background $darkgray
+        statusline $aqua
+        #                  border    background text
+        focused_workspace  $aqua     $aqua      $darkgray
+        inactive_workspace $darkgray $darkgray  $yellow
+        active_workspace   $darkgray $darkgray  $yellow
+        urgent_workspace   $red      $red       $white
+    }
 }
 
-# borders
+#                       border    background text      indicator child_border
+client.focused          $aqua     $aqua      $darkgray $purple   $aqua
+client.focused_inactive $darkgray $darkgray  $yellow   $purple   $darkgray
+client.unfocused        $darkgray $darkgray  $yellow   $purple   $darkgray
+client.urgent           $red      $red       $white    $red      $red
+
 default_border pixel 1
 default_floating_border pixel 1
