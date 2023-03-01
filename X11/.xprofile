@@ -1,4 +1,3 @@
 #!/bin/bash
-wal -n -R
 setxkbmap pl
 

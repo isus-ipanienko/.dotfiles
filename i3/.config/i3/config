@@ -1,16 +1,5 @@
 set $mod Mod4
 
-# colors
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color8 #f0f0f0
-# class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
-client.background       $bg
-
 # startup
 exec --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec --no-startup-id feh --bg-fill --randomize $HOME/.config/wallpapers/horizontal/*
@@ -18,12 +7,10 @@ exec --no-startup-id dunst
 exec --no-startup-id dbus-update-activation-environment --all
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id nm-applet --sm-disable
-exec_always --no-startup-id $HOME/.config/polybar/polybar.sh & 
 
 # binds
 bindsym $mod+Return exec kitty
-bindsym $mod+d exec --no-startup-id rofi -show run
-bindsym $mod+period exec --no-startup-id rofimoji
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'DejaVu Sans Mono 10'
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+w exec --no-startup-id slock
@@ -81,6 +68,14 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+
+bar {
+    status_command i3status
+    position top
+    output primary
+    tray_output primary
+    font pango:DejaVu Sans Mono 10
+}
 
 # borders
 default_border pixel 1
