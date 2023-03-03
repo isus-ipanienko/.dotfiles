@@ -53,10 +53,11 @@ battery all {
         status_unk = "UNK"
         status_full = "FULL"
         path = "/sys/class/power_supply/BAT%d/uevent"
+        last_full_capacity = true
         low_threshold = 10
 }
 
 tztime local {
-        format = "%H:%M %d-%m-%Y"
+        format = "%H:%M %d/%m/%Y"
 }
 

@@ -24,6 +24,8 @@ return require 'packer'.startup(function(use)
     use 'nvim-treesitter/nvim-treesitter-context'
     use 'p00f/nvim-ts-rainbow'
     use 'numToStr/Comment.nvim'
+    use 'f-person/git-blame.nvim'
+    use 'tpope/vim-fugitive'
 
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'

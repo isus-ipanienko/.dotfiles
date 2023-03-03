@@ -9,7 +9,7 @@ local setup = function()
     vim.g.mapleader = " "
 
     -- preserve pasted buffer
-    vim.keymap.set('x', '<leader>i', '"_dP')
+    vim.keymap.set('x', '<c-i>', '"_dP')
 
     -- paste from yank register
     vim.keymap.set('n', '<c-p>', '"0p')
@@ -30,13 +30,14 @@ local setup = function()
     vim.keymap.set('v', '<leader>y', '"+y')
     vim.keymap.set('n', '<leader>Y', '"+Y')
 
-    -- no thanks
-    vim.keymap.set('n', 'Q', '<nop>')
-
     -- replace word under cursor
     vim.keymap.set('n', '<leader>rw', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
 
-    vim.keymap.set('n', '<leader>ou', vim.cmd.UndotreeToggle)
+    -- no thanks
+    vim.keymap.set('n', 'Q', '<nop>')
+
+    vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+    vim.keymap.set("n", "<leader>g", vim.cmd.Git)
 
     vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
     vim.keymap.set('n', '<leader>pf', builtin.find_files)
@@ -48,10 +49,10 @@ local setup = function()
 
     vim.keymap.set('n', '<leader>ha', mark.add_file, { silent = true })
     vim.keymap.set('n', '<leader>ho', hui.toggle_quick_menu, { silent = true })
-    vim.keymap.set('n', '<leader>h1', function() hui.nav_file(1) end, { silent = true })
-    vim.keymap.set('n', '<leader>h2', function() hui.nav_file(2) end, { silent = true })
-    vim.keymap.set('n', '<leader>h3', function() hui.nav_file(3) end, { silent = true })
-    vim.keymap.set('n', '<leader>h4', function() hui.nav_file(4) end, { silent = true })
+    vim.keymap.set('n', '<c-1>', function() hui.nav_file(1) end, { silent = true })
+    vim.keymap.set('n', '<c-2>', function() hui.nav_file(2) end, { silent = true })
+    vim.keymap.set('n', '<c-3>', function() hui.nav_file(3) end, { silent = true })
+    vim.keymap.set('n', '<c-4>', function() hui.nav_file(4) end, { silent = true })
 
     vim.keymap.set('n', '<home>', function() dapui.toggle() end)
     vim.keymap.set('n', '<end>', function() dap.disconnect({ terminateDebuggee = true }) end)
@@ -90,17 +91,16 @@ local lsp_on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, bufopts)
     vim.keymap.set('n', '<leader>dt', '<cmd>Telescope diagnostics<cr>', bufopts)
 
+    vim.keymap.set('n', '<leader>lr', vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<leader>ld', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', '<leader>lc', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set('n', '<leader>li', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', '<leader>lt', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', '<leader>lh', vim.lsp.buf.hover, bufopts)
     vim.keymap.set('n', '<leader>ls', vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end, bufopts)
-
-    vim.keymap.set('n', '<leader>rr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
-    vim.keymap.set('n', '<leader>rc', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set('n', '<leader>rd', vim.lsp.buf.definition, bufopts)
-    vim.keymap.set('n', '<leader>ri', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', '<leader>rt', vim.lsp.buf.type_definition, bufopts)
 
     vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
     vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
