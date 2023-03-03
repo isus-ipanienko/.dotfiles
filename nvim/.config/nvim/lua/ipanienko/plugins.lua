@@ -13,7 +13,6 @@ local packer_bootstrap = ensure_packer()
 
 return require 'packer'.startup(function(use)
     use 'wbthomason/packer.nvim'
-
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -23,14 +22,17 @@ return require 'packer'.startup(function(use)
     }
     use 'nvim-treesitter/nvim-treesitter-context'
     use 'p00f/nvim-ts-rainbow'
-    use 'numToStr/Comment.nvim'
-    use 'f-person/git-blame.nvim'
-    use 'tpope/vim-fugitive'
 
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'ThePrimeagen/harpoon'
+
+    use 'tpope/vim-fugitive'
+    use 'ThePrimeagen/git-worktree.nvim'
+    use 'f-person/git-blame.nvim'
+
+    use 'numToStr/Comment.nvim'
     use 'mbbill/undotree'
 
     use 'aserowy/tmux.nvim'
