@@ -28,6 +28,14 @@ return require 'packer'.startup(function(use)
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'ThePrimeagen/harpoon'
 
+    use {
+        'folke/trouble.nvim',
+        requires = 'nvim-tree/nvim-web-devicons',
+        config = function()
+            require 'trouble'.setup {}
+        end
+    }
+
     use 'tpope/vim-fugitive'
     use 'ThePrimeagen/git-worktree.nvim'
     use 'f-person/git-blame.nvim'

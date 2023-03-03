@@ -46,9 +46,13 @@ local setup = function()
 
     vim.keymap.set('n', '<leader>tb', builtin.buffers)
     vim.keymap.set('n', '<leader>th', builtin.help_tags)
+    vim.keymap.set("n", "<c-t>", "<cmd>TroubleToggle document_diagnostics<cr>", { silent = true })
+    vim.keymap.set("n", "<c-e>", "<cmd>TroubleToggle quickfix<cr>", { silent = true })
 
-    vim.keymap.set('n', '<leader>ws', function() require 'telescope'.extensions.git_worktree.git_worktrees() end, { silent = true })
-    vim.keymap.set('n', '<leader>wc', function() require 'telescope'.extensions.git_worktree.create_git_worktree() end, { silent = true })
+    vim.keymap.set('n', '<leader>ws', function() require 'telescope'.extensions.git_worktree.git_worktrees() end,
+        { silent = true })
+    vim.keymap.set('n', '<leader>wc', function() require 'telescope'.extensions.git_worktree.create_git_worktree() end,
+        { silent = true })
 
     vim.keymap.set('n', '<leader>ha', mark.add_file, { silent = true })
     vim.keymap.set('n', '<leader>ho', hui.toggle_quick_menu, { silent = true })
