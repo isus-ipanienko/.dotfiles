@@ -34,12 +34,12 @@ memory {
 }
 
 disk "/" {
-        format = "DISK %percentage_used"
+        format = "💾 %free"
 }
 
 volume master {
-        format = "VOL %volume"
-        format_muted = "VOL MUT"
+        format = "🔊 %volume"
+        format_muted = "🔇"
         device = "default"
         mixer = "Master"
         mixer_idx = 0
@@ -48,16 +48,16 @@ volume master {
 battery all {
         format = "%status %percentage"
         format_down = ""
-        status_chr = "CHR"
-        status_bat = "BAT"
-        status_unk = "UNK"
-        status_full = "FULL"
+        status_chr = "⚡"
+        status_bat = "🔋"
+        status_unk = "?"
+        status_full = "☻"
         path = "/sys/class/power_supply/BAT%d/uevent"
         last_full_capacity = true
         low_threshold = 10
 }
 
 tztime local {
-        format = "%H:%M %d/%m/%Y"
+        format = "🕖 %H:%M %d/%m/%Y"
 }
 

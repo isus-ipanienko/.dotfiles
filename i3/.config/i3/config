@@ -71,13 +71,10 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # theme
 set $red #cc241d
-set $green #98971a
 set $yellow #d79921
-set $blue #458588
 set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
+set $aqua #8db48d
+set $gray #111212
 
 font pango:DejaVu Sans Mono 10
 
@@ -86,22 +83,23 @@ bar {
     position top
     output primary
     tray_output primary
+    separator_symbol |
     colors {
-        background $darkgray
+        background $gray
         statusline $aqua
-        #                  border    background text
-        focused_workspace  $aqua     $aqua      $darkgray
-        inactive_workspace $darkgray $darkgray  $yellow
-        active_workspace   $darkgray $darkgray  $yellow
-        urgent_workspace   $red      $red       $white
+        #                  border bg    text
+        focused_workspace  $aqua  $aqua $gray
+        inactive_workspace $gray  $gray $yellow
+        active_workspace   $gray  $gray $yellow
+        urgent_workspace   $red   $red  $white
     }
 }
 
-#                       border    background text      indicator child_border
-client.focused          $aqua     $aqua      $darkgray $purple   $aqua
-client.focused_inactive $darkgray $darkgray  $yellow   $purple   $darkgray
-client.unfocused        $darkgray $darkgray  $yellow   $purple   $darkgray
-client.urgent           $red      $red       $white    $red      $red
+#                       border bg    text    indicator child_border
+client.focused          $aqua  $aqua $gray   $purple   $aqua
+client.focused_inactive $gray  $gray $yellow $purple   $gray
+client.unfocused        $gray  $gray $yellow $purple   $gray
+client.urgent           $red   $red  $white  $red      $red
 
 default_border pixel 1
 default_floating_border pixel 1
