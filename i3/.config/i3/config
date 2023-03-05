@@ -1,6 +1,7 @@
 set $mod Mod4
 
 # startup
+exec --no-startup-id ~/.scripts/monitors.sh
 exec --no-startup-id picom --config $HOME/.config/picom/picom.conf
 exec --no-startup-id feh --bg-fill --randomize $HOME/.config/wallpapers/horizontal/*
 exec --no-startup-id dunst
@@ -21,10 +22,10 @@ bindsym --release $mod+Shift+s exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e '
 bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && polybar-msg action audio hook 0
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && polybar-msg action audio hook 0
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && polybar-msg action audio hook 0
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # windows
 bindsym $mod+h focus left
@@ -75,13 +76,13 @@ set $yellow #d79921
 set $purple #b16286
 set $aqua #8db48d
 set $gray #111212
+set $white #ffffff
 
 font pango:DejaVu Sans Mono 10
 
 bar {
     status_command i3status
     position top
-    output primary
     tray_output primary
     separator_symbol |
     colors {

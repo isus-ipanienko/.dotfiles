@@ -28,7 +28,7 @@ cpu_usage {
 }
 
 memory {
-        format = "MEM %free"
+        format = "MEM %used / %total"
         threshold_degraded = "10%"
         format_degraded = "MEM %free"
 }

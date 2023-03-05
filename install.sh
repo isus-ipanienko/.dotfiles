@@ -4,14 +4,12 @@ DOTFILES=$HOME/.dotfiles
 
 if [ "$1" == "--fresh" ]
 then
-    echo "installing dependencies..."
     sudo pacman --noconfirm --needed -Sy stow \
             curl ca-certificates ntp dosfstools exfat-utils ntfs-3g p7zip \
             pipewire-pulse wireplumber pamixer networkmanager-openvpn \
             networkmanager network-manager-applet gnome-keyring openvpn \
-            xorg-server xorg-xinit xorg-xmodmap xdotool acpilight \
-            i3-wm picom slock feh dunst scrot \
-            ttf-sazanami ttf-liberation ttf-dejavu \
+            i3-wm picom slock feh dunst scrot acpilight \
+            ttf-sazanami ttf-liberation ttf-dejavu noto-fonts-emoji \
             base-devel git gitui kitty zsh tmux neovim fzf ripgrep \
             clang llvm lldb rustup rust-analyzer pyright lua-language-server \
             ncspot mpv firefox keepassxc steam xdg-desktop-portal-gnome
