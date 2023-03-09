@@ -1,58 +1,51 @@
-local dap = require 'dap'
-local dapui = require 'dapui'
-local daptext = require 'nvim-dap-virtual-text'
+local dap = require("dap")
+local dapui = require("dapui")
+local daptext = require("nvim-dap-virtual-text")
 
-daptext.setup {
+daptext.setup({
     enabled = true,
-}
+})
 
-dapui.setup {
+dapui.setup({
     layouts = {
         {
             elements = {
-                'scopes',
-                'watches',
+                "scopes",
+                "watches",
             },
             size = 0.25,
-            position = 'left',
+            position = "left",
         },
         {
             elements = {
-                'stacks',
-                'repl',
-                -- 'console',
+                "stacks",
+                "repl",
+                -- "console",
             },
             size = 0.3,
-            position = 'bottom',
+            position = "bottom",
         },
-        -- {
-        --     elements = {
-        --         'stacks',
-        --     },
-        --     size = 0.25,
-        --     position = 'right',
-        -- },
     },
     controls = {
         enabled = false
     },
-}
+})
 
 dap.adapters.lldb = {
-    type = 'executable',
-    command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
-    name = 'lldb'
+    type = "executable",
+    command = "/usr/bin/lldb-vscode", -- must be absolute path
+    name = "lldb"
 }
 
 dap.configurations.cpp = {
     {
-        name = 'Launch',
-        type = 'lldb',
-        request = 'launch',
+        name = "Launch",
+        type = "lldb",
+        request = "launch",
         program = function()
-            return vim.fn.input('Path to executable: ', vim.loop.cwd() .. '/', 'file')
+            return vim.fn.input("Path to executable: ", vim.loop.cwd() .. '/', 'file')
         end,
-        cwd = '${workspaceFolder}',
+        cwd = "${workspaceFolder}",
         stopOnEntry = false,
         args = {},
     },
@@ -62,6 +55,6 @@ dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
 
 local listeners = dap.listeners
-listeners.after.event_initialized['dapui_config'] = function() dapui.open() end
-listeners.before.event_terminated['dapui_config'] = function() dapui.close() end
-listeners.before.event_exited['dapui_config'] = function() dapui.close() end
+listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
+listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
+listeners.before.event_exited["dapui_config"] = function() dapui.close() end

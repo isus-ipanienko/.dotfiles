@@ -1,6 +1,6 @@
-vim.o.background = 'dark'
+vim.o.background = "dark"
 
-require 'gruvbox'.setup({
+require("gruvbox").setup({
     undercurl = true,
     underline = true,
     bold = true,
@@ -11,7 +11,7 @@ require 'gruvbox'.setup({
     invert_tabline = false,
     invert_intend_guides = false,
     inverse = true, -- invert background for search, diffs, statuslines and errors
-    contrast = 'hard', -- can be 'hard', 'soft' or empty string
+    contrast = "hard",
     palette_overrides = {
         dark0_hard = "#000000",
     },
@@ -19,4 +19,4 @@ require 'gruvbox'.setup({
     dim_inactive = false,
     transparent_mode = true,
 })
-vim.cmd('colorscheme gruvbox')
+vim.cmd("colorscheme gruvbox")

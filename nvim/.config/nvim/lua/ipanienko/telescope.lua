@@ -1,13 +1,13 @@
-require 'telescope'.setup {
+require("telescope").setup({
     extensions = {
         fzf = {
             fuzzy = true,
             override_generic_sorter = true,
             override_file_sorter = true,
-            case_mode = 'respect_case',
+            case_mode = "respect_case",
         }
     }
-}
+})
 
-require 'telescope'.load_extension('fzf')
-require 'telescope'.load_extension('git_worktree')
+require("telescope").load_extension("fzf")
+require("telescope").load_extension("git_worktree")

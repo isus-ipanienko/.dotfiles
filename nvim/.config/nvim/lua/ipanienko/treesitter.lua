@@ -1,8 +1,8 @@
-require 'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup({
     ensure_installed = {
-        'bash', 'c', 'cpp', 'rust', 'python', 'lua', 'c_sharp',
-        'cmake', 'make', 'diff', 'gitignore',
-        'json', 'toml', 'yaml', 'dockerfile', 'nix'
+        "bash", "c", "cpp", "rust", "python", "lua", "c_sharp",
+        "cmake", "make", "diff", "gitignore",
+        "json", "toml", "yaml", "dockerfile", "nix"
     },
     sync_install = false,
     auto_install = true,
@@ -12,15 +12,11 @@ require 'nvim-treesitter.configs'.setup {
     },
     incremental_selection = {
         enable = true,
-        keymaps = {
-            init_selection = '<c-cr>',
-            node_incremental = '<c-cr>',
-            node_decremental = '<s-cr>',
-        },
+        keymaps = require("ipanienko.keybinds").treesitter_keymaps,
     },
     rainbow = {
         enable = true,
         extended_mode = true,
         max_file_lines = nil,
     }
-}
+})
