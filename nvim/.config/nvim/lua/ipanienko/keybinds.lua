@@ -122,21 +122,21 @@ local M = {}
 local cmp = require("cmp")
 M.cmp = {
     mapping = cmp.mapping.preset.insert({
-            ["<C-h>"] = cmp.mapping.scroll_docs(-4),
-            ["<C-l>"] = cmp.mapping.scroll_docs(4),
-            ["<C-Space>"] = cmp.mapping.complete(),
-            ["<CR>"] = cmp.mapping.confirm {
+        ["<C-h>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-l>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-y>"] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
-            ["<Tab>"] = cmp.mapping(function(fallback)
+        ["<C-n>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
             else
                 fallback()
             end
         end, { "i", "s" }),
-            ["<S-Tab>"] = cmp.mapping(function(fallback)
+        ["<C-p>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
             else
@@ -147,29 +147,19 @@ M.cmp = {
 }
 
 M.lsp_on_attach = function(client, bufnr)
-    local bufopts = { noremap = true, silent = true, buffer = bufnr }
-    vim.keymap.set("n", "co", vim.diagnostic.open_float, bufopts)
-    vim.keymap.set("n", "cj", vim.diagnostic.goto_prev, bufopts)
-    vim.keymap.set("n", "ck", vim.diagnostic.goto_next, bufopts)
-    vim.keymap.set("n", "cl", vim.diagnostic.setloclist, bufopts)
-    vim.keymap.set("n", "ct", "<CMD>Telescope diagnostics<CR>", bufopts)
-
-    vim.keymap.set("n", "sr", vim.lsp.buf.rename, bufopts)
-    vim.keymap.set("n", "se", vim.lsp.buf.references, bufopts)
-    vim.keymap.set("n", "sd", vim.lsp.buf.definition, bufopts)
-    vim.keymap.set("n", "sc", vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set("n", "si", vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set("n", "st", vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set("n", "sh", vim.lsp.buf.hover, bufopts)
-    vim.keymap.set("n", "ss", vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set("n", "sa", vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set("n", "sf", function() vim.lsp.buf.format { async = true } end, bufopts)
-
-    vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-    vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-    vim.keymap.set("n", "<leader>wl", function()
-        print(vim.inspect(vim.lsp.buf.list_workleader_folders()))
-    end, bufopts)
+    local opts = { noremap = true, buffer = bufnr }
+    vim.keymap.set("n", "sd", vim.diagnostic.open_float, opts)
+    vim.keymap.set("n", "gj", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "gk", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "<leader>fmt", function() vim.lsp.buf.format { async = true } end, opts)
+    vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "sr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "sh", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "ss", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 end
 
 M.treesitter_keymaps = {
