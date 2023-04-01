@@ -1,8 +1,8 @@
 local ensure_packer = function()
     local fn = vim.fn
-    local install_path = fn.stdpath("data") .. '/site/pack/packer/start/packer.nvim'
+    local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
     if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({ "git", 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+        fn.system({ "git", "clone", '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
         vim.cmd [[packadd packer.nvim]]
         return true
     end
@@ -13,44 +13,56 @@ local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
     use("wbthomason/packer.nvim")
+
+    use({
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.1",
+        requires = { { "nvim-lua/plenary.nvim" } }
+    })
+    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+
     use({
         "nvim-treesitter/nvim-treesitter",
-        run = function()
-            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-            ts_update()
-        end,
+        run = ":TSUpdate",
     })
     use("nvim-treesitter/nvim-treesitter-context")
-    use("p00f/nvim-ts-rainbow")
 
-    use("nvim-lua/plenary.nvim")
-    use("nvim-telescope/telescope.nvim")
-    use({ "nvim-telescope/telescope-fzf-native.nvim", run = 'make' })
+    use("mbbill/undotree")
+    use("tpope/vim-fugitive")
     use("ThePrimeagen/harpoon")
+    use("numToStr/Comment.nvim")
 
     use({
         "folke/trouble.nvim",
-        requires = "nvim-tree/nvim-web-devicons",
         config = function()
-            require "trouble".setup {}
+            require("trouble").setup({
+                icons = false
+            })
         end
     })
 
-    use("tpope/vim-fugitive")
-    use("ThePrimeagen/git-worktree.nvim")
-    use("f-person/git-blame.nvim")
+    use({
+        "VonHeikemen/lsp-zero.nvim",
+        branch = "v2.x",
+        requires = {
+            -- LSP Support
+            { "neovim/nvim-lspconfig" },
+            { "williamboman/mason.nvim" },
+            { "williamboman/mason-lspconfig.nvim" },
 
-    use("numToStr/Comment.nvim")
-    use("mbbill/undotree")
+            -- Autocompletion
+            { "hrsh7th/nvim-cmp" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-path" },
+            { "saadparwaiz1/cmp_luasnip" },
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "hrsh7th/cmp-nvim-lua" },
 
-    use("aserowy/tmux.nvim")
-
-    use("neovim/nvim-lspconfig")
-    use("hrsh7th/nvim-cmp")
-    use("hrsh7th/cmp-nvim-lua")
-    use("hrsh7th/cmp-nvim-lsp")
-    use("saadparwaiz1/cmp_luasnip")
-    use("L3MON4D3/LuaSnip")
+            -- Snippets
+            { "L3MON4D3/LuaSnip" },
+            { "rafamadriz/friendly-snippets" },
+        }
+    })
 
     use("mfussenegger/nvim-dap")
     use("rcarriga/nvim-dap-ui")

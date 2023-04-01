@@ -58,3 +58,13 @@ local listeners = dap.listeners
 listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
 listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
 listeners.before.event_exited["dapui_config"] = function() dapui.close() end
+
+vim.keymap.set("n", "<home>", function() dapui.toggle() end)
+vim.keymap.set("n", "<end>", function() dap.disconnect({ terminateDebuggee = true }) end)
+vim.keymap.set("n", "<up>", function() dap.continue() end)
+vim.keymap.set("n", "<down>", function() dap.step_over() end)
+vim.keymap.set("n", "<right>", function() dap.step_into() end)
+vim.keymap.set("n", "<left>", function() dap.step_out() end)
+vim.keymap.set("n", "<C-b>", function() dap.toggle_breakpoint() end)
+vim.keymap.set("n", "<S-b>", function() dap.set_breakpoint(vim.fn.input("Breakpoint condition: ")) end)
+vim.keymap.set("n", "<A-b>", function() dap.run_to_cursor() end)
