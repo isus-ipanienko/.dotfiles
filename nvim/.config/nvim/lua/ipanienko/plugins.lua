@@ -28,9 +28,12 @@ return require("packer").startup(function(use)
     use("nvim-treesitter/nvim-treesitter-context")
 
     use("mbbill/undotree")
-    use("tpope/vim-fugitive")
     use("ThePrimeagen/harpoon")
     use("numToStr/Comment.nvim")
+
+    use("tpope/vim-fugitive")
+    use("lewis6991/gitsigns.nvim")
+    use("ThePrimeagen/git-worktree.nvim")
 
     use({
         "folke/trouble.nvim",

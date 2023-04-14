@@ -20,7 +20,7 @@ vim.keymap.set("n", "sb", builtin.buffers)
 vim.keymap.set("n", "st", builtin.help_tags)
 
 local extensions = require("telescope").extensions
-vim.keymap.set("n", "<leader>gc", function() extensions.git_worktree.git_worktrees() end,
+vim.keymap.set("n", "<leader>gw", function() extensions.git_worktree.git_worktrees() end,
     { silent = true })
-vim.keymap.set("n", "<leader>gn", function() extensions.git_worktree.create_git_worktree() end,
+vim.keymap.set("n", "<leader>gc", function() extensions.git_worktree.create_git_worktree() end,
     { silent = true })

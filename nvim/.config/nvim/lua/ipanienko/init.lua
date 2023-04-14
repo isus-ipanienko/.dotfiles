@@ -1,4 +1,3 @@
-print("hello from init")
 require("ipanienko.opt")
 require("ipanienko.remap")
 require("ipanienko.plugins")
