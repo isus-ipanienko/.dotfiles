@@ -6,7 +6,6 @@ lsp.ensure_installed({
     "clangd",
     "rust_analyzer",
     "pyright",
-    "csharp_ls"
 })
 
 -- (Optional) Configure lua language server for neovim
