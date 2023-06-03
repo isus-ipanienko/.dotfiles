@@ -14,7 +14,11 @@ require('kanagawa').setup({
         theme = {
             wave = {},
             lotus = {},
-            dragon = {},
+            dragon = {
+                ui = {
+                    bg = "#030303"
+                }
+            },
             all = {
                 ui = {
                     bg_gutter = "none"
