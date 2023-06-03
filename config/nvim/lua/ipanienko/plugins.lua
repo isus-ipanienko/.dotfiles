@@ -76,7 +76,7 @@ return require("packer").startup(function(use)
         requires = { "kyazdani42/nvim-web-devicons", opt = true }
     })
     use("arkav/lualine-lsp-progress")
-    use("ellisonleao/gruvbox.nvim")
+    use("rebelot/kanagawa.nvim")
 
     if packer_bootstrap then
         require("packer").sync()
