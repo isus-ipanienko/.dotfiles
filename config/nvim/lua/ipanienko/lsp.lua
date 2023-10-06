@@ -1,42 +1,5 @@
 local lsp = require("lsp-zero")
 
-lsp.preset("recommended")
-
-lsp.ensure_installed({
-    "clangd",
-    "rust_analyzer",
-    "pyright",
-})
-
--- (Optional) Configure lua language server for neovim
-require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
-
-local cmp = require("cmp")
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-    ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
-    ["<C-Space>"] = cmp.mapping.complete(),
-})
-
-cmp_mappings["<Tab>"] = nil
-cmp_mappings["<S-Tab>"] = nil
-
-lsp.setup_nvim_cmp({
-    mapping = cmp_mappings
-})
-
-lsp.set_preferences({
-    suggest_lsp_servers = false,
-    sign_icons = {
-        error = "E",
-        warn = "W",
-        hint = "H",
-        info = "I"
-    }
-})
-
 ---@diagnostic disable-next-line: unused-local
 lsp.on_attach(function(client, bufnr)
     local opts = { noremap = true, buffer = bufnr }
@@ -54,8 +17,50 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 end)
 
-lsp.setup()
+require("mason").setup({})
+require("mason-lspconfig").setup({
+    ensure_installed = {
+        "bashls",
+        "clangd",
+        "cmake",
+        "rust_analyzer",
+        "pyright",
+        "gopls",
+        "angularls",
+        "cssls",
+        "html",
+        "jsonls",
+    },
+    handlers = {
+        lsp.default_setup,
+        lua_ls = function()
+            require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+        end,
+    }
+})
 
-vim.diagnostic.config({
-    virtual_text = true
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+cmp.setup({
+    sources = {
+        { name = "path" },
+        { name = "nvim_lsp" },
+        { name = "nvim_lua" },
+    },
+    formatting = lsp.cmp_format(),
+    mapping = cmp.mapping.preset.insert({
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+        ["<C-Space>"] = cmp.mapping.complete(),
+
+        ["<C-f>"] = cmp_action.luasnip_jump_forward(),
+        ["<C-b>"] = cmp_action.luasnip_jump_backward(),
+
+        ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+        ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+
+        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-d>"] = cmp.mapping.scroll_docs(4),
+    })
 })

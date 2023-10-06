@@ -3,10 +3,10 @@ sudo pacman --noconfirm --needed -Sy \
         curl ca-certificates ntp dosfstools exfat-utils ntfs-3g p7zip \
         pipewire-pulse wireplumber pamixer networkmanager-openvpn \
         networkmanager network-manager-applet gnome-keyring openvpn \
-        i3-wm picom slock feh dunst scrot acpilight \
+        i3-wm picom slock feh dunst scrot acpilight xclip \
         ttf-sazanami ttf-liberation ttf-dejavu noto-fonts-emoji \
-        base-devel git gitui kitty zsh tmux neovim fzf ripgrep \
-        clang llvm lldb rustup rust-analyzer pyright lua-language-server \
+        base-devel git gitui kitty zsh tmux neovim fzf ripgrep fd \
+        clang llvm lldb rustup rust-analyzer pyright lua-language-server go \
         ncspot mpv imv firefox keepassxc steam xdg-desktop-portal-gnome
 
 sudo systemctl enable NetworkManager
