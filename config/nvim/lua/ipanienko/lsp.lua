@@ -30,6 +30,7 @@ require("mason-lspconfig").setup({
         "cssls",
         "html",
         "jsonls",
+        "zls",
     },
     handlers = {
         lsp.default_setup,

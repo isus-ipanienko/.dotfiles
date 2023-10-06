@@ -7,7 +7,7 @@ sudo pacman --noconfirm --needed -Sy \
         i3-wm picom slock feh dunst scrot acpilight xclip \
         ttf-sazanami ttf-liberation ttf-dejavu noto-fonts-emoji \
         base-devel git gitui kitty zsh tmux neovim fzf ripgrep fd \
-        cmake clang llvm lldb rustup go \
+        cmake clang llvm lldb rustup go zig \
         firefox chromium ncspot mpv imv keepassxc steam
 
 sudo systemctl enable NetworkManager

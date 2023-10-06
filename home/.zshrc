@@ -31,5 +31,4 @@ RPROMPT="${return_code}"
 PATH="$PATH:$HOME/.scripts"
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
-PATH="$PATH:$HOME/.dotnet/tools"
 
