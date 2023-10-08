@@ -147,10 +147,10 @@ require("gitsigns").setup({
         end, { expr = true })
 
         -- Actions
-        map({ 'n', 'v' }, '<leader>hs', gs.stage_hunk)
-        map({ 'n', 'v' }, '<leader>hr', gs.reset_hunk)
-        map('n', '<leader>hu', gs.undo_stage_hunk)
-        map('n', '<leader>hd', gs.diffthis)
+        map({ 'n', 'v' }, '<leader>gs', gs.stage_hunk)
+        map({ 'n', 'v' }, '<leader>gr', gs.reset_hunk)
+        map('n', '<leader>gu', gs.undo_stage_hunk)
+        map('n', '<leader>gd', gs.diffthis)
     end
 })
 
@@ -194,16 +194,15 @@ require("telescope").setup({
 })
 require("telescope").load_extension("fzf")
 local builtin = require("telescope.builtin")
-
-vim.keymap.set("n", "<leader>pf", builtin.find_files)
-vim.keymap.set("n", "<leader>ps", builtin.live_grep)
-vim.keymap.set("n", "<leader>pg", builtin.git_files)
-vim.keymap.set("n", "sb", builtin.buffers)
-vim.keymap.set("n", "st", builtin.help_tags)
-
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pf", builtin.find_files)
+vim.keymap.set("n", "<leader>ps", builtin.live_grep)
+vim.keymap.set("n", "<leader>pg", builtin.git_files)
+vim.keymap.set("n", "<leader>pb", builtin.buffers)
+vim.keymap.set("n", "<leader>ph", builtin.help_tags)
 vim.keymap.set("n", "<leader>pa", mark.add_file, { silent = true })
 vim.keymap.set("n", "<leader>po", ui.toggle_quick_menu, { silent = true })
 vim.keymap.set("n", "<C-1>", function() ui.nav_file(1) end, { silent = true })
@@ -212,8 +211,7 @@ vim.keymap.set("n", "<C-3>", function() ui.nav_file(3) end, { silent = true })
 vim.keymap.set("n", "<C-4>", function() ui.nav_file(4) end, { silent = true })
 
 vim.keymap.set("n", "<leader>u", "<CMD>UndotreeToggle<CR>")
-vim.keymap.set("n", "<c-e>", "<CMD>TroubleToggle quickfix<CR>", { silent = true })
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<C-e>", "<CMD>TroubleToggle quickfix<CR>", { silent = true })
 
 -- LSP
 
