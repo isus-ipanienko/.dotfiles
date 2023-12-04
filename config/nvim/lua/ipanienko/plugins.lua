@@ -58,7 +58,7 @@ require("packer").startup(function(use)
     -- Navigation
     use({
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.1",
+        tag = "0.1.4",
         requires = { { "nvim-lua/plenary.nvim" } }
     })
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
@@ -269,8 +269,14 @@ require("mason-lspconfig").setup({
         lua_ls = function()
             require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
         end,
+        clangd = function()
+            require("lspconfig").clangd.setup({
+                cmd = { "clangd", "-header-insertion=never" },
+            })
+        end,
     }
 })
+
 
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()

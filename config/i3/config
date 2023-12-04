@@ -47,6 +47,9 @@ bindsym $mod+f fullscreen
 focus_follows_mouse no
 focus_wrapping no
 
+for_window [title="Pumpkin Engine"] floating enable, move container to workspace 2; workspace 2
+for_window [class="No Title Yet"] floating enable
+
 # workspaces
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
