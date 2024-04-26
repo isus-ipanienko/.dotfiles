@@ -1,6 +1,7 @@
 -- Options
 
 vim.g.mapleader = " "
+vim.g.netrw_sort_sequence = "[\\/]$,,\\.bak$,\\.o$,\\.info$,\\.swp$,\\.obj$"
 vim.opt.guicursor = ""
 vim.opt.relativenumber = true
 vim.opt.nu = true
