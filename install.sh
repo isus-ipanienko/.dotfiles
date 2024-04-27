@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
 sudo pacman --noconfirm --needed -Sy \
+        mako wl-clipboard firefox chromium ncspot mpv imv keepassxc steam \
+        ttf-sazanami ttf-liberation ttf-dejavu ttf-font-awesome noto-fonts-emoji \
         curl ca-certificates ntp dosfstools exfat-utils ntfs-3g p7zip \
-        pipewire-pulse wireplumber pamixer \
-        networkmanager network-manager-applet networkmanager-openvpn \
-        gnome-keyring xdg-desktop-portal-gnome \
-        sway swaylock swaybg mako grim acpilight wl-clipboard xwayland \
-        ttf-sazanami ttf-liberation ttf-dejavu noto-fonts-emoji \
-        base-devel git gitui kitty zsh tmux neovim fzf ripgrep fd \
-        cmake clang llvm lldb rustup go zig \
-        firefox chromium ncspot mpv imv keepassxc steam
-
-sudo systemctl enable NetworkManager
+        gnome-keyring xdg-desktop-portal-gnome network-manager-applet \
+        base-devel gitui kitty zsh tmux neovim fzf ripgrep fd \
+        cmake clang llvm lldb rustup go zig
 
 git clone https://github.com/isus-ipanienko/zsh-fzf $HOME/.zsh/zsh-fzf
 git clone https://github.com/isus-ipanienko/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
