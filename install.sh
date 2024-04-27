@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 sudo pacman --noconfirm --needed -Sy \
-        mako wl-clipboard firefox chromium ncspot mpv imv keepassxc steam \
+        mako wl-clipboard waybar firefox chromium ncspot mpv imv keepassxc steam \
         ttf-sazanami ttf-liberation ttf-dejavu ttf-font-awesome noto-fonts-emoji \
         curl ca-certificates ntp dosfstools exfat-utils ntfs-3g p7zip \
         gnome-keyring xdg-desktop-portal-gnome network-manager-applet \
