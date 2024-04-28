@@ -7,7 +7,7 @@
 }
 
 #waybar {
-    background: #323232;
+    background: #1e1e1e;
     color: white;
     font-family: Cantarell, Noto Sans, sans-serif;
     font-size: 13px;
@@ -22,7 +22,7 @@
 }
 
 #workspaces button.focused {
-    border-color: #4c7899;
+    border-color: #007ACC;
     color: white;
     background-color: #285577;
 }

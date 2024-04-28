@@ -107,7 +107,7 @@ require("packer").startup(function(use)
         requires = { "kyazdani42/nvim-web-devicons", opt = true }
     })
     use("arkav/lualine-lsp-progress")
-    use("rebelot/kanagawa.nvim")
+    use("Mofiqul/vscode.nvim")
 
     -- DAP
     -- use("mfussenegger/nvim-dap")
