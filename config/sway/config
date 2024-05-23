@@ -4,6 +4,7 @@ exec --no-startup-id ~/.scripts/monitors.sh
 exec --no-startup-id waybar
 exec --no-startup-id mako
 exec --no-startup-id swaymsg output "*" bg $HOME/.config/wallpapers/wallpaper-ilya-kuvshinov.png fill
+exec --no-startup-id swaymsg input 1:1:AT_Translated_Set_2_keyboard xkb_layout pl
 exec --no-startup-id dbus-update-activation-environment --all
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id nm-applet --sm-disable
