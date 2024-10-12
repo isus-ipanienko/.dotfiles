@@ -9,7 +9,7 @@ exec --no-startup-id dbus-update-activation-environment --all
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id nm-applet --sm-disable
 
-for_window [title="Pumpkin Engine"] floating enable, move container to workspace 2; workspace 2
+for_window [title="Pumpkin Engine"] floating enable, move container to workspace 1;
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload

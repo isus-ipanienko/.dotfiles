@@ -31,6 +31,14 @@ vim.opt.updatetime = 50
 vim.opt.shortmess:append("c")
 vim.opt.termguicolors = true
 
+vim.filetype.add({
+    extension = {
+        comp = 'glsl',
+        vert = 'glsl',
+        frag = 'glsl',
+    },
+})
+
 -- Plugins
 
 local ensure_packer = function()
