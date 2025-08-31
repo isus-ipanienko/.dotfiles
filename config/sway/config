@@ -1,23 +1,51 @@
 set $mod Mod4
 
-exec --no-startup-id ~/.scripts/monitors.sh
+# Input
+input type:keyboard {
+    xkb_layout "pl"
+}
+
+# Output
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+output DP-4 {
+    mode 2560x1440@74.924Hz
+    transform 270
+}
+
+output HDMI-A-2 {
+    mode 3440x1440@99.992Hz
+    pos 0 0
+}
+
+exec_always xrandr --output HDMI-A-2 --primary
+
+# Startup
 exec --no-startup-id waybar
 exec --no-startup-id mako
-exec --no-startup-id swaymsg output "*" bg $HOME/.config/wallpapers/wallpaper-ilya-kuvshinov.png fill
-exec --no-startup-id swaymsg input 1:1:AT_Translated_Set_2_keyboard xkb_layout pl
 exec --no-startup-id dbus-update-activation-environment --all
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id nm-applet --sm-disable
 
+# Exceptions
 for_window [title="Pumpkin Engine"] floating enable, move container to workspace 1;
+
+# Keybinds
+bindsym $mod+Return exec alacritty
+bindsym $mod+d exec wmenu-run
+bindsym $mod+w exec --no-startup-id swaylock
+bindsym --release $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+w exec --no-startup-id swaylock
-bindsym $mod+Return exec alacritty
-bindsym $mod+d exec --no-startup-id wofi --show run
-bindsym --release $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+f fullscreen
+
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
 
 bindsym XF86MonBrightnessUp   exec --no-startup-id brightnessctl s +30
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 30-
@@ -26,6 +54,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+focus_follows_mouse no
+focus_wrapping no
+
+# Movement
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -36,10 +68,10 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-bindsym $mod+Ctrl+h resize grow width 5 px or 5 ppt
-bindsym $mod+Ctrl+j resize shrink height 5 px or 5 ppt
-bindsym $mod+Ctrl+k resize grow height 5 px or 5 ppt
-bindsym $mod+Ctrl+l resize shrink width 5 px or 5 ppt
+bindsym $mod+Ctrl+h resize grow width 20 px
+bindsym $mod+Ctrl+j resize shrink height 20 px
+bindsym $mod+Ctrl+k resize grow height 20 px
+bindsym $mod+Ctrl+l resize shrink width 20 px
 
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -63,6 +95,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+# Colors
 set $color0       #1e1e1e
 set $color1       #f44747
 set $color2       #608b4e
@@ -82,20 +115,16 @@ set $color15      #d4d4d4
 set $foreground   #d4d4d4
 set $background   #1e1e1e set $cursorColor  #d4d4d4
 
-# class, border, bg, text, indicator, child border
-client.focused           $color6 $color6 $color0 $color6 $color6
-client.focused_inactive  $color8 $color8 $color0 $color8 $color8
-client.unfocused         $color8 $color0 $color8 $color8 $color8
+#      class             border  bg      text    indicator  child border
+client.focused           $color6 $color6 $color0 $color6    $color6
+client.focused_inactive  $color8 $color8 $color0 $color8    $color8
+client.unfocused         $color8 $color0 $color8 $color8    $color8
 client.focused_tab_title $color6 $color0 $color6
-client.urgent            $color3 $color0 $color3 $color8 $color8
-client.placeholder       $color6 $color0 $color6 $color6 $color8
-
-client.background $color6
+client.urgent            $color3 $color0 $color3 $color8    $color8
+client.placeholder       $color6 $color0 $color6 $color6    $color8
+client.background        $color6
 
 font pango:DejaVu Sans Mono 10
 default_border pixel 1
 default_floating_border pixel 1
 
-bindsym $mod+f fullscreen
-focus_follows_mouse no
-focus_wrapping no
