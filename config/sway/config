@@ -21,7 +21,6 @@ output HDMI-A-2 {
 exec_always xrandr --output HDMI-A-2 --primary
 
 # Startup
-exec --no-startup-id waybar
 exec --no-startup-id mako
 exec --no-startup-id dbus-update-activation-environment --all
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
@@ -128,3 +127,6 @@ font pango:DejaVu Sans Mono 10
 default_border pixel 1
 default_floating_border pixel 1
 
+bar {
+    swaybar_command waybar
+}
