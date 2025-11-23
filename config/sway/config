@@ -25,6 +25,7 @@ exec --no-startup-id mako
 exec --no-startup-id dbus-update-activation-environment --all
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id nm-applet --sm-disable
+exec --no-startup-id blueman-applet
 
 # Exceptions
 for_window [title="Pumpkin Engine"] floating enable, move container to workspace 1;
@@ -46,8 +47,8 @@ bindsym $mod+v splitv
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
-bindsym XF86MonBrightnessUp   exec --no-startup-id brightnessctl s +30
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 30-
+bindsym XF86MonBrightnessUp   exec --no-startup-id brightnessctl s +3000
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 3000-
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
