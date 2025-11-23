@@ -30,6 +30,8 @@ vim.opt.termguicolors = true
 vim.g.mapleader = " "
 vim.g.netrw_sort_sequence = "[\\/]$,,\\.bak$,\\.o$,\\.info$,\\.swp$,\\.obj$"
 
+vim.cmd[[set completeopt+=menuone,noselect,popup]]
+
 vim.filetype.add({
     extension = {
         comp = 'glsl',

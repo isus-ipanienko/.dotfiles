@@ -11,12 +11,16 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 output DP-4 {
     mode 2560x1440@74.924Hz
     transform 270
+    pos 0 0
 }
 
 output HDMI-A-2 {
     mode 3440x1440@99.992Hz
-    pos 0 0
+    pos 1440 560
 }
+
+workspace 1 output HDMI-A-2
+workspace 2 output DP-4
 
 exec_always xrandr --output HDMI-A-2 --primary
 
