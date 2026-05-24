@@ -29,6 +29,6 @@ ${user_symbol} "
 RPROMPT="${return_code}"
 
 PATH="$PATH:$HOME/.scripts"
-SAVEHIST=10000
+SAVEHIST=100000
 HISTFILE=~/.zsh_history
 
