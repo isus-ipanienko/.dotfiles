@@ -41,18 +41,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
     group = ipanienko_group,
     callback = function(e)
         local opts = { buffer = e.buf }
-        vim.keymap.set("n", "sd", vim.diagnostic.open_float, opts)
-        vim.keymap.set("n", "gj", vim.diagnostic.goto_prev, opts)
-        vim.keymap.set("n", "gk", vim.diagnostic.goto_next, opts)
-        vim.keymap.set("n", "<leader>fmt", function() vim.lsp.buf.format { async = true } end, opts)
-        vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+        -- Show section
+        vim.keymap.set("n", "sf", vim.diagnostic.open_float, opts)
         vim.keymap.set("n", "sr", vim.lsp.buf.references, opts)
         vim.keymap.set("n", "sh", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "ss", vim.lsp.buf.signature_help, opts)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+
+        -- Go section
+        vim.keymap.set("n", "gj", function() vim.diagnostic.jump { count = 1, float = true } end, opts)
+        vim.keymap.set("n", "gk", function() vim.diagnostic.jump { count = -1, float = true } end, opts)
+
+        -- Other commands
+        vim.keymap.set("n", "<leader>fmt", function() vim.lsp.buf.format { async = true } end, opts)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
     end
 })
-
